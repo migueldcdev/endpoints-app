@@ -1,17 +1,28 @@
 defmodule EndpointsApp do
   @moduledoc """
-  Elixir app with a couple of endpoints.
+  A simple Elixir application with a couple of HTTP endpoints using Plug.
+
+  This app provides the following HTTP routes:
+  
+  - `GET /ping`: Returns a simple pong message.
+  - `GET /number/:number`: Returns a random even or odd number depending whether the param number is even or odd.
+  - `GET /_`: Returns a 404 error for any undefined routes.
+
+  ## Endpoints
+
+  - **GET /ping**
+    - **Response**: `200 OK`
+    - **Body**: `{"message": "pong"}`
+
+  - **GET /number/:number**
+    - **Response**: `200 OK`
+    - **Body**: `{"message": "<number>"}`
+
+  - **GET /_** (catch-all)
+    - **Response**: `404 Not Found`
+    - **Body**: `{"message": "Endpoint not found"}`  
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> EndpointsApp.hello()
-      :world
-
-  """   
   import Plug.Conn
   use Plug.Router
 
@@ -30,7 +41,6 @@ defmodule EndpointsApp do
   end
 
   get "number/:param" do
-
     number = String.to_integer(param)    
 
     message = case rem(number, 2) do
