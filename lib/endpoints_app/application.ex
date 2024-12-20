@@ -9,6 +9,7 @@ defmodule EndpointsApp.Application do
     children = [
       # Starts a worker by calling: EndpointsApp.Worker.start_link(arg)
       # {EndpointsApp.Worker, arg}
+      {Plug.Cowboy, plug: EndpointsApp, scheme: :http, options: [port: 4000]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
