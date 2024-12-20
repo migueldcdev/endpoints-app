@@ -1,21 +1,9 @@
-# EndpointsApp
+# Elixir Application with HTTP Endpoints Using Plug
 
-**TODO: Add description**
+A simple Elixir application with a couple of HTTP endpoints using Plug.
 
-## Installation
+This app provides the following HTTP routes:
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `endpoints_app` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:endpoints_app, "~> 0.1.0"}
-  ]
-end
-```
-
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/endpoints_app](https://hexdocs.pm/endpoints_app).
-
+- `GET /ping`: Returns a simple pong message.
+- `GET /number/:number`: Returns a random even or odd number depending on whether the parameter `number` is even or odd.
+- `GET /_`: Returns a 404 error for any undefined routes.
